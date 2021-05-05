@@ -95,6 +95,8 @@ function startGame() {
     createSnake();
     drawFood();
 
+    endGame();
+
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
@@ -112,6 +114,8 @@ function startGame() {
     }
 
     toEat(snakeX, snakeY);
+
+    
 }
 
 function toEat(snakeX, snakeY) {
@@ -132,7 +136,17 @@ function toEat(snakeX, snakeY) {
     snake.unshift(newHead);
 }
 
-let play = setInterval(startGame, 150);
+function endGame() {
+    for(i = 1; i < snake.length; i++) {
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
+            clearInterval(play);
+            alert("Game Over." + "\n"+ "Reinicie a página para jogar novamente!");
+        }
+    }
+
+}
+
+let play = setInterval(startGame, getMode());
 function begin() {
     play;
     getTheme();
