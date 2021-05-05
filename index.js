@@ -15,6 +15,9 @@ let food = {
     y: Math.floor(Math.random() * 15 + 1) * box,
 }
 
+let backgroundColor = "";
+let snakeColor = "";
+
 function createBackground() {
     context.fillStyle = "gray";
     context.fillRect(0, 0, 16 * box, 16 * box);
@@ -30,6 +33,27 @@ function createSnake() {
 function drawFood() {
     context.fillStyle = "red";
     context.fillRect(food.x, food.y, box, box);
+}
+
+function getMode() {
+    const modo = document.getElementById("modoDoJogo");
+    return modo.value;
+}
+
+function getTheme() {
+    const thema = document.getElementById("snakeColor");
+    if(thema.value == 1){
+        backgroundColor = "#d3d3d3";
+        snakeColor = "blue";
+    }
+    else if(thema.value == 2) {
+        backgroundColor = "#808080";
+        snakeColor = "blue";
+    }
+    else {
+        backgroundColor = "#505050";
+        snakeColor = "blue";
+    }
 }
 
 document.addEventListener('keydown', update);
@@ -109,4 +133,14 @@ function toEat(snakeX, snakeY) {
 }
 
 let play = setInterval(startGame, 150);
-play;
+function begin() {
+    play;
+    getTheme();
+
+    let snake = document.getElementById("snake");
+    snake.classList.add("active");
+
+    let buttons = document.querySelector(".containerButtons");
+    buttons.classList.add("noActive");
+
+}

@@ -5,10 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
+
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <h1>Snake Game!</h1>
     <canvas id="snake" width="512" height="512"></canvas>
+
+    <div class="containerButtons">
+        <span>Defina a velocidade do jogo: </span>
+        <select name="Modo" id="modoDoJogo">
+            <option value="200">Lento</option>
+            <option value="150">Normal</option>
+            <option value="100">Rápido</option>
+        </select>
+
+        <span>Defina o tema do jogo: </span>
+        <select name="tema" id="snakeColor">
+            <option value="1">Claro</option>
+            <option value="2">Clássico</option>
+            <option value="3">Escuro</option>
+        </select>
+
+        <button onclick="begin()">Start</button>
+    </div>
     
 
     <script src="./index.js"></script>
