@@ -19,13 +19,13 @@ let backgroundColor = "";
 let snakeColor = "";
 
 function createBackground() {
-    context.fillStyle = "gray";
+    context.fillStyle = backgroundColor;
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
 function createSnake() {
     for(let i = 0; i < snake.length; i++) {
-        context.fillStyle = "green";
+        context.fillStyle = snakeColor;
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
